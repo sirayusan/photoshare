@@ -19,15 +19,15 @@
                     <li>
                         <a href="">Menu1</a>
                         <ul>
-                            <li><a href="{{ route('home') }}">会員登録はこちら</a></li>
-                            <li><a href="{{ route('home') }}">会員登録はこちら</a></li>
-                            <li><a href="{{ route('home') }}">会員登録はこちら</a></li>
+                            <li><a href="{{ route('login') }}">会員登録はこちら</a></li>
+                            <li><a href="{{ route('login') }}">会員登録はこちら</a></li>
+                            <li><a href="{{ route('login') }}">会員登録はこちら</a></li>
                         </ul>
                     </li>
                 </ul>
-                <li class="gloval_fixed_menu_inner"><a href="{{ route('home') }}">会員登録はこちら</a></li>
-                <li class="gloval_fixed_menu_inner"><a href="{{ route('home') }}">会員登録はこちら</a></li>
-                <li class="gloval_fixed_menu_inner"><a href="{{ route('home') }}">会員登録はこちら</a></li>
+                <li class="gloval_fixed_menu_inner"><a href="{{ route('login') }}">会員登録はこちら</a></li>
+                <li class="gloval_fixed_menu_inner"><a href="{{ route('login') }}">会員登録はこちら</a></li>
+                <li class="gloval_fixed_menu_inner"><a href="{{ route('login') }}">会員登録はこちら</a></li>
             </ul>
         </nav>
     </header>
