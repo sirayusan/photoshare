@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
-class RepliesSeeder extends Seeder
+class TagsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,33 +18,33 @@ class RepliesSeeder extends Seeder
     {
       DB::table('tags')->insert([
         'post_id'    => '1',
-        'comment'    => 'タグ1',
+        'tag'    => 'タグ1',
         'created_at' => Carbon::now(),
       ]);
       DB::table('tags')->insert([
         'post_id'    => '2',
-        'comment'    => 'タグ2',
+        'tag'    => 'タグ2',
         'created_at' => Carbon::now(),
       ]);
       DB::table('tags')->insert([
         'post_id'    => '3',
-        'comment'    => 'タグ3',
+        'tag'    => 'タグ3',
         'created_at' => Carbon::now(),
       ]);
       DB::table('tags')->insert([
         'post_id'    => '4',
-        'comment'    => 'タグ4',
+        'tag'    => 'タグ4',
         'created_at' => Carbon::now(),
       ]);
 
       DB::table('tags')->insert([
         'post_id'    => '1',
-        'comment'    => 'タグ重複確認',
+        'tag'    => 'タグ重複確認',
         'created_at' => Carbon::now(),
       ]);
       DB::table('tags')->insert([
         'post_id'    => '2',
-        'comment'    => 'タグ重複確認',
+        'tag'    => 'タグ重複確認',
         'created_at' => Carbon::now(),
       ]);
 

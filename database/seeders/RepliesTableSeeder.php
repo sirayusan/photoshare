@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
-class RepliesSeeder extends Seeder
+class RepliesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

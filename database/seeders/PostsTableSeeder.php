@@ -7,7 +7,7 @@ use DB;
 use Str;
 use Carbon\Carbon;
 
-class PostSeeder extends Seeder
+class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

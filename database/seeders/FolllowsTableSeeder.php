@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class FolllowSeeder extends Seeder
+class FolllowsTableSeeder extends Seeder
 {
     /**
      * Seed the application's database.
