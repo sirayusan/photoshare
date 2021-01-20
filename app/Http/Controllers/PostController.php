@@ -15,10 +15,6 @@ use Str;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -81,17 +77,6 @@ class PostController extends Controller
             }
         }
         return redirect('top');
-    }
-
-    /**
-    * Display the specified resource.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
-    public function show($id)
-    {
-      //
     }
 
     /**
