@@ -9,9 +9,7 @@ class TopController extends Controller
 {
     public function index()
     {
-        $md = new Post();
-
-        $posts = $md->all();
+        $posts = Post::all();
 
         return view('top',compact('posts'));
     }

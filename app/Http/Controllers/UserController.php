@@ -27,11 +27,11 @@ class UserController extends Controller
             return redirect('top');
         }
         $user = User::Find($id);
-        return view('profile',compact('user',));
+        return view('profile',compact('user'));
     }
 
     //ユーザー情報変更(画像・ユーザー名・自己紹介文)
-    public function store(ValidateController $request)
+    public function update(ValidateController $request)
     {
         $user = Auth::user();
         $user->name = $request['name'];
@@ -43,7 +43,7 @@ class UserController extends Controller
             $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
             $user->image = hash('sha256',Str::random(20).time()).'.'.'png';
             File::put(storage_path('app/public/image/UserImage'). '/' . $user->image, $image);
-        }else{
+        }elseif(isset($request->image)){
             return back()->with('error', '選択できるのは画像のみです。');
         }
 

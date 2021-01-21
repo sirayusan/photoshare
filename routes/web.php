@@ -48,11 +48,11 @@ Route::resource('/tag_search',TagController::class)->only([
 
 //認証機能
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //プロフィール機能
 Route::resource('users',UserController::class)->only([
-    'show','store'
+    'show','update'
 ]);
 
 //フォロー解除
