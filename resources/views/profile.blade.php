@@ -38,8 +38,9 @@
     <a href="{{ route('posts.create') }}">投稿する</a>
     <br>
     <a href="{{ route('top.index') }}">トップへ</a>
-    <form action="/users" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
+    <form action="{{ route('users.update',['user'=>Auth::id()]) }}" method="post" enctype="multipart/form-data">
+        @method('PUT')
+        @csrf
         @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
