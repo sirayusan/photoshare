@@ -31,7 +31,7 @@ class UserController extends Controller
     }
 
     //ユーザー情報変更(画像・ユーザー名・自己紹介文)
-    public function update(Request $request)
+    public function update(ValidateController $request)
     {
         $user = Auth::user();
         $user->name = $request['name'];
