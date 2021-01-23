@@ -166,7 +166,7 @@
             @else
                 <p><img src="{{ asset("/PostImage/$post->user->image") }}" width="80px"></p>
             @endif
-            {{ $post->user->name }}さんが「<a href="{{ route('comments.index',['post_id' => $post->id]) }}">{{ $post->title }}</a>」を投稿しました！</p>
+            {{ $post->user->name }}さんが「<a href="{{ route('posts.show',['post' => $post->id]) }}">{{ $post->title }}</a>」を投稿しました！</p>
             @endforeach
         <a href="{{ route('follow.post_index') }}">もっとみる</a>
     </div>

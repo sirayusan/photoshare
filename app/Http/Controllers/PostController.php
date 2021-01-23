@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopController;
 use Illuminate\Http\Request;
+use App\Models\Follow;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Tag;
@@ -77,6 +78,19 @@ class PostController extends Controller
             }
         }
         return redirect('top');
+    }
+
+    /**
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+        $post = Post::find($id);
+        $follow = new Follow;
+        return view('post_details',compact('post','follow'));
     }
 
     /**
