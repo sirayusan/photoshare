@@ -35,9 +35,6 @@
     <br>
     <a href="{{ route('top.index') }}">トップへ</a>
     <div>
-        @if(isset($comment))
-            <p>{{ $comment }}</p>
-        @endif
         @foreach ($posts as $post)
           <div class="post">
             <p>タイトル</p>
