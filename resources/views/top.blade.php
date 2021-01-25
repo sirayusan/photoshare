@@ -54,7 +54,7 @@ use Illuminate\Support\Facades\Auth;
   @foreach ($posts as $post)
     <div class="post">
       <p>タイトル</p>
-      <a href="{{ route('comments.index',['post_id' => $post->id]) }}">{{ $post['title'] }}</a>
+      <a href="{{ route('posts.show',['post' => $post->id]) }}">{{ $post['title'] }}</a>
       <p>{{ $post['comment'] }}</p>
       @if ($post->image ==  "no_image.png")
       <p><img src="{{ asset('/SystemImage/no_image.png') }}" width="80px"></p>

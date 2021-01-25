@@ -28,12 +28,12 @@ Route::resource('top',TopController::class)->only([
 
 //投稿関連
 Route::resource('posts',PostController::class)->only([
-    'create', 'store','destroy','edit','update'
+    'create', 'store','show','destroy','edit','update'
 ]);
 
 //コメント機能
 Route::resource('/posts/{post_id}/comments',ReplyController::class)->only([
-    'index','store'
+    'store'
 ]);
 
 //いいね機能
