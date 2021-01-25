@@ -139,7 +139,7 @@ class PostController extends Controller
 
         //タグ処理関係
         $substitute_tags = array_unique(explode(',',str_replace('，',',',$request->tags)));
-        //不要タグ削除
+        // 不要タグ削除
         foreach ($post->tags as $tag) {
             $already_tag = in_array($tag->tag,$substitute_tags);
             if (!$already_tag)
@@ -151,11 +151,12 @@ class PostController extends Controller
         {
             // タグ登録
             foreach ($substitute_tags as $substitute_tag) {
-                $tag = new Tag;
-                $tag->post_id = $post->id;
-                $tag->tag = $substitute_tag;
-                if(!$tag->already_exist_tag())
+                // dd(!$post->already_exist_tag($substitute_tag));
+                if(!$post->already_exist_tag($substitute_tag))
                 {
+                    $tag = new Tag;
+                    $tag->tag = $substitute_tag;
+                    $tag->post_id = $post->id;
                     $tag->save();
                 }
             }

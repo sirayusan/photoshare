@@ -28,11 +28,9 @@ class TagController extends Controller
                 }
             }
             $posts = array_unique($posts);
-            return view('tag_search',compact('posts'));
         }else{
             $posts = Post::all();
-            $comment = "入力がなかったため全数表示しています。";
-            return view('tag_search',compact('posts','comment'));
         }
+        return view('tag_search',compact('posts'));
     }
 }
