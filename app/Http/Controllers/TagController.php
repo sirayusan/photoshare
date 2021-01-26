@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use App\Models\Post;
 
 class TagController extends Controller
 {
@@ -15,16 +16,21 @@ class TagController extends Controller
     */
     public function index(Request $request)
     {
-        $substitute_tags = explode(',',str_replace('，',',',$request->tags));
-        $tags = Tag::wherein('tag',$substitute_tags)->get();
-        foreach ($tags as $tag)
+        if (isset($request->tags))
         {
-            foreach ($tag->posts as $post)
+            $substitute_tags = array_unique(explode(',',str_replace('，',',',$request->tags)));
+            $tags = Tag::wherein('tag',$substitute_tags)->get();
+            foreach ($tags as $tag)
             {
-                $posts[] = $post;
+                foreach ($tag->posts as $post)
+                {
+                    $posts[] = $post;
+                }
             }
+            $posts = array_unique($posts);
+        }else{
+            $posts = Post::all();
         }
-        $posts = array_unique($posts);
         return view('tag_search',compact('posts'));
     }
 }
