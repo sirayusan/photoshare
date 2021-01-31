@@ -1,67 +1,53 @@
-<?php
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
- ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>トップページ</title>
     <!-- スタイルを明示的にすべてリセットする -->
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet" />
     <!-- スタイル指定 -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-  </head>
-  <body>
-      <header id="sample">
-          <nav id="gloval_fixed_menu">
-              <ul id="gloval_fixed_menu_outer">
-                  <ul class="gnav gloval_fixed_menu_inner">
-                      <li>
-                          <a href="">Menu1</a>
-                          <ul>
-                              <li><a href="{{ route('login') }}">会員登録はこちら</a></li>
-                              <li><a href="{{ route('login') }}">会員登録はこちら</a></li>
-                              <li><a href="{{ route('login') }}">会員登録はこちら</a></li>
-                          </ul>
-                      </li>
-                  </ul>
-                  <li class="gloval_fixed_menu_inner"><a href="{{ route('login') }}">会員登録はこちら</a></li>
-                  <li class="gloval_fixed_menu_inner"><a href="{{ route('login') }}">会員登録はこちら</a></li>
-                  <li class="gloval_fixed_menu_inner"><a href="{{ route('login') }}">会員登録はこちら</a></li>
-              </ul>
-          </nav>
-      </header>
-  <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
-  <div class="wrap"></div>
-  <a href="{{ route('posts.create') }}">投稿する</a>
-  <br>
-  @if (Auth::check() === true)
-  <a href="{{ route('users.show',['user'=>Auth::user()]) }}">profile</a>
-  @endif
-  <br>
-  <form action="{{ route('tag_search.index') }}" method="get">
-      <input type="text" name="tags" value="">
-      <input type="submit" name="" value="検索">
-  </form>
-  <br>
-  <!-- postメソッドで移動させるためにformでpost指定 -->
-  <form method="post" name="form_1" id="form_1" action="{{ route('logout') }}">
-      <input type="hidden" name="user_name" placeholder="ユーザー名">
-      <a href="javascript:form_1.submit()">ログアウト</a>
-  <p>投稿一覧表示</p>
-  @foreach ($posts as $post)
-    <div class="post">
-      <p>タイトル</p>
-      <a href="{{ route('posts.show',['post' => $post->id]) }}">{{ $post['title'] }}</a>
-      <p>{{ $post['comment'] }}</p>
-      @if ($post->image ==  "no_image.png")
-      <p><img src="{{ asset('/SystemImage/no_image.png') }}" width="80px"></p>
-      @else
-      <p><img src="{{ asset("/PostImage/$post->image") }}" width="80px"></p>
-      @endif
+</head>
+<body>
+    @include('header')
+    <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
+    <div class="wrap"></div>
+    <div class="top_image_container">
+        <img class="top_image"  src="{{asset('/SystemImage/top.jpg')}}" alt="top画像">
+        <div class="top_image_inner">
+            <p class="top_title">photoshare</p>
+            <a class="top_link ghost_btn" href="{{ route('register') }}">会員登録する</a>
+            <a class="top_link ghost_btn" href="{{ route('posts.create') }}">投稿する</a>
+        </div>
     </div>
-  @endforeach
-  </body>
+    <br>
+    <!-- postメソッドで移動させるためにformでpost指定 -->
+    <h1 class="line_Darkblue top_index">投稿一覧</h1>
+    <div class="posts">
+        @foreach ($posts as $post)
+        <div class="post">
+            <a href="{{ route('posts.show',['post' => $post->id]) }}">
+                @if ($post->image ==  "no_image.png")
+                <img class="post_img" src="{{ asset('/SystemImage/no_image.png') }}">
+                @else
+                <img class="post_img" src="{{ asset("/PostImage/$post->image") }}" width="80px">
+                @endif
+                @if (strlen($post->title) <= 36)
+                <p>{{ mb_strimwidth($post->title,0,36) }}</p>
+                @else
+                <p>{{ mb_strimwidth($post->title,0,30) }}.....</p>
+                @endif
+            </a>
+            <div class="post_user">
+                @if ($post->user->image ==  "user_no_image.png")
+                <img class="post_icon_Image" src="{{ asset('/SystemImage/'.$post->user->image) }}">
+                @else
+                <img class="post_icon_Image" src="{{ asset('/UserImage/'.$post->user->image) }}">
+                @endif
+                <p>{{ mb_strimwidth($post->user->name,0,28) }}</p>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</body>
 </html>
