@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 </head>
 <body>
     <header>
-        @yield('gloval_fixed_menu')
+        @yield('head')
     </header>
     <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
     <div class="wrap"></div>
@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Auth;
     </div>
     <br>
     <!-- postメソッドで移動させるためにformでpost指定 -->
-    <h1 class="line_Darkblue top_index">新着投稿</h1>
+    <h1 class="line_Darkblue top_index">投稿一覧</h1>
     <div class="posts">
         @foreach ($posts as $post)
         <div class="post">
