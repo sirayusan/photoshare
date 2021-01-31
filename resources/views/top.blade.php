@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 </head>
 <body>
     <header>
+        @section('gloval_fixed_menu')
         <div class="gloval_fixed_menu">
             <div class="gloval_fixed_menu_inner">
                 <a href="{{ route('top.index') }}">photoshare</a>
@@ -46,6 +47,8 @@ use Illuminate\Support\Facades\Auth;
                 </ul>
             </div>
             <!--ここまでメニュー-->
+            @endsection
+            @yield('gloval_fixed_menu')
         </div>
     </header>
     <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
