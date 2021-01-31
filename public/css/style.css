@@ -18,8 +18,8 @@ body {
 }
 .gloval_fixed_menu a{
     font-size: 1.5rem;
-    display: table;
     padding: 10px 10px;
+    margin-left: 40px;
 }
 .gloval_fixed_menu a:visited{
     color: white;

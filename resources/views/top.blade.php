@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        @yield('head')
-    </header>
+    @include('header')
     <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
     <div class="wrap"></div>
     <div class="top_image_container">
