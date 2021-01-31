@@ -1,8 +1,3 @@
-<?php
-namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
