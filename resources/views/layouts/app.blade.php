@@ -16,10 +16,15 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- スタイルを明示的にすべてリセットする -->
+    <link href="{{ asset('css/reset.css') }}" rel="stylesheet" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
 </head>
 <body>
+    @include('header')
+    @section('body')
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -76,5 +81,6 @@
             @yield('content')
         </main>
     </div>
+    @show
 </body>
 </html>

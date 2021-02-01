@@ -1,3 +1,7 @@
+body {
+    width: 920px;
+}
+
 /* 固定ヘッダー */
 .wrap {
     padding: 1.5rem;
@@ -5,6 +9,7 @@
 }
 
 .gloval_fixed_menu {
+    display: flex;
     height: 3rem;
     width: 100%;
     position: fixed;
@@ -13,10 +18,16 @@
 
 }
 .gloval_fixed_menu a{
+        line-height: 1;
     font-size: 1.5rem;
     padding: 10px 10px;
     margin-left: 40px;
 }
+
+.gloval_fixed_menu a:hover{
+    text-decoration: none;
+}
+
 .gloval_fixed_menu a:visited{
     color: white;
 }
@@ -164,7 +175,7 @@
 }
 .top_link{
     display: block;
-    width: 60%;
+    width: 80%;
     border: 2px solid #76C9EB;
     border-radius: 5px;
     font-size: 1.5rem;
@@ -184,9 +195,10 @@
 }
 
 /* ゴーストボタン */
-.ghost_btn:hover{
+.top_link:hover{
     background-color: #76C9EB;
-    color: black;
+    color: white;
+    text-decoration: none;
 }
 
 /* 見出し */
