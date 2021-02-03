@@ -39,8 +39,7 @@ body {
 
 .menu-btn {
     position: fixed;
-    top: 0px;
-    right: 0px;
+    left: 860px;
     display: flex;
     height: 3rem;
     width: 3rem;
@@ -194,6 +193,158 @@ body {
     margin: 0px 40px;
 }
 
+/* プロフィールページ */
+/* 画像変更部 */
+.modal-footer{
+    display: block;
+}
+..modal-body{
+    margin: 0px auto;
+}
+.filelabel {
+   color: white;              /* 文字色 */
+   display: inline-block;     /* インラインブロック化 */
+}
+.filelabel img {
+   vertical-align: bottom;    /* 画像の垂直方向の配置 */
+}
+.iconImage:hover {
+   opacity: 0.5;              /* 半透明 */
+   cursor: pointer;           /* マウス形状(ポインタ) */
+}
+#image {
+   display: none;  /* 本来のファイル選択フォームは非表示に */
+}
+.profile_container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 40px;
+    text-align:
+}
+.iconImage{
+    width: 200px;
+}
+.profile_edit_image{
+    width: 50px;
+    position: absolute;
+    left: 150px;
+    top: 150px;
+}
+.profile_description_block{
+    width: 620px;
+    padding: 40px;
+}
+.profile_comment_block{
+    margin-left: 240px;
+}
+.profile_name{
+    width: 560px;
+    font-size: 2rem;
+}
+.profile_container label, input {
+  display: block;
+}
+.profile_comment{
+    width: 560px;
+    height: 200;
+    font-size: 1.5rem;
+}
+.profile_edit_complete{
+    width: 150px;
+    height: 50px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+}
+.profile_index{
+    font-size: 2rem;
+    margin: 30px 40px 00px 40px;
+}
+/* プロフィールの新着投稿 */
+.new_posts_container{
+    margin: 0px 40px;
+}
+.new_post p{
+    color: black;
+}
+.new_post_image {
+    width: 20px;
+}
+
+/* 会員情報表示 */
+.user_block {
+    margin: 10px 10px;
+    padding: 10px 0px;
+    width:800px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid;
+}
+.user_name{
+    width: 710px;
+    font-size: 1.2rem;
+}
+.user_image{
+    width: 80px;
+}
+.user_discription p{
+    margin: 0px 0px 0px 10px;
+}
+
+/*タブ切り替え全体のスタイル*/
+.follow_follower_index {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 0 40px;
+}
+
+/*タブのスタイル*/
+.tab_item {
+  width: 50%;
+  height: 50px;
+  border-bottom: 3px solid #5ab4bd;
+  background-color: #d9d9d9;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #565656;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_item:hover {
+  opacity: 0.75;
+}
+
+/*ラジオボタンを全て消す*/
+input[name="tab_item"] {
+  display: none;
+}
+
+/*タブ切り替えの中身のスタイル*/
+.tab_content {
+  display: none;
+  clear: both;
+  overflow: hidden;
+}
+
+/*選択されているタブのコンテンツのみを表示*/
+#all:checked ~ #all_content,
+#programming:checked ~ #programming_content,
+#design:checked ~ #design_content {
+  display: block;
+}
+
+/*選択されているタブのスタイルを変える*/
+.follow_follower_index input:checked + .tab_item {
+  background-color: #5ab4bd;
+  color: #fff;
+}
+
 /* ゴーストボタン */
 .top_link:hover{
     background-color: #76C9EB;
@@ -211,6 +362,7 @@ body {
 .posts{
     margin: 0px 40px;
     display: flex;
+    flex-wrap: wrap;
 }
 .post{
     margin: 10px 10px 0px 0px ;
@@ -222,9 +374,11 @@ body {
   opacity: 0.6;
 }
 .post_img{
+    margin: 5px 0;
     width: 150px;
 }
 .post p{
+    color: black;
     text-align: left;
 }
 .post_icon_Image{
@@ -234,6 +388,11 @@ body {
 }
 .post_user{
     display: flex;
+}
+.post_edit_block{
+    display: flex;
+    width: 100px;
+    margin: 0px auto;;
 }
 
 .replies {
@@ -245,14 +404,6 @@ body {
   border: 1px solid;
 }
 
-.user {
-  margin: 10px 10px;
-  width: 130px;
-  height: auto;
-  text-align: center;
-  background-color: blue;
-  border: 1px solid;
-}
 
 
 /* Share SNS */
