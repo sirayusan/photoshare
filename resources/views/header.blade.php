@@ -25,7 +25,7 @@
                         <li>
                         </li>
                         <li>
-                            <a href="{{ route('login') }}">投稿する</a>
+                            <a href="{{ route('posts.create') }}">投稿する</a>
                         </li>
                     </ul>
                 </div>
