@@ -249,15 +249,35 @@ body {
     height: 200;
     font-size: 1.5rem;
 }
-.profile_edit_complete{
-    width: 150px;
-    height: 50px;
-    margin: 20px auto;
-    font-size: 1.2rem;
-}
 .profile_index{
     font-size: 2rem;
     margin: 30px 40px 00px 40px;
+}
+.profile_edit_complete {
+    display       : inline-block;
+    border-radius : 5%;
+    font-size     : 18pt;
+    text-align    : center;
+    cursor        : pointer;
+    padding       : 12px 13px;
+    margin: 10px 217px;
+    background    : #1a68b2;
+    color         : #ffffff;
+    line-height   : 1em;
+    transition    : .3s;
+    border        : 2px solid #1a68b2;
+}
+.profile_edit_complete:hover {
+    color         : #1a68b2;
+    background    : #ffffff;
+}
+.profile_posts_edit_button {
+    margin: 2px 2px;
+    font-size     : 12pt;
+    text-align    : center;
+    cursor        : pointer;
+    background    : #1a68b2;
+    color         : #ffffff;
 }
 /* プロフィールの新着投稿 */
 .new_posts_container{

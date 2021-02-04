@@ -145,10 +145,10 @@
             <form action="{{ route('posts.destroy',['post'=>$post->id]) }}" method="post">
                 @method('DELETE')
                 @csrf
-                <input type="submit" value="削除">
+                <input class="profile_posts_edit_button" type="submit" value="削除">
             </form>
             <form action="{{ route('posts.edit',['post'=>$post->id]) }}" method="get">
-                <input type="submit" value="編集">
+                <input class="profile_posts_edit_button" type="submit" value="編集">
             </form>
         </div>
     </div>
