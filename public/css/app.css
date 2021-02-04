@@ -6301,6 +6301,7 @@ a.close.disabled {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
+  margin: 0 auto;
 }
 
 .modal-footer {
@@ -10902,4 +10903,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
