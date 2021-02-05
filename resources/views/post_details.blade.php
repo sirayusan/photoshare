@@ -17,9 +17,9 @@
             @endforeach
         </h2>
         <ul class="shareSns">
-            <li><a class="icon-LINE" href="https://social-plugins.line.me/lineit/share?url=http://localhost:3100/posts/{{ $post->id }}/comments"><img src="{{ asset("/SystemImage/LINE.jpg") }}" ></a></li>
-            <li><a class="icon-facebook" href="https://www.facebook.com/sharer.php?src=bm&u=http://localhost:3100/posts/{{ $post->id }}/comments"><img src="{{ asset("/SystemImage/Facebook.jpg") }}" ></a></li>
-            <li><a class="icon-twitter" href="https://twitter.com/intent/tweet?url=http://localhost:3100/posts/{{ $post->id }}/comments"><img src="{{ asset("/SystemImage/Twitter.jpg") }}" ></a></li>
+            <li><a class="icon-LINE" href="https://social-plugins.line.me/lineit/share?url={{ route('posts.show',['post' => $post->id]) }}"><img src="{{ asset("/SystemImage/LINE.jpg") }}" ></a></li>
+            <li><a class="icon-facebook" href="https://www.facebook.com/sharer.php?src=bm&u={{ route('posts.show',['post' => $post->id]) }}"><img src="{{ asset("/SystemImage/Facebook.jpg") }}" ></a></li>
+            <li><a class="icon-twitter" href="https://twitter.com/intent/tweet?url={{ route('posts.show',['post' => $post->id]) }}"><img src="{{ asset("/SystemImage/Twitter.jpg") }}" ></a></li>
         </ul>
     </article>
     @if ($post->image ==  "no_image.png")
