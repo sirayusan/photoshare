@@ -30,6 +30,6 @@ class ReplyController extends Controller
         $reply->post_id = $request->post_id;
         $reply->save();
 
-        return redirect('top');
+        return redirect()->back();
     }
 }

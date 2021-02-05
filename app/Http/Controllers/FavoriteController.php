@@ -26,7 +26,7 @@ class FavoriteController extends Controller
         $favorite->post_id = $id;
         $favorite->save();
 
-        return redirect('top');
+        return redirect()->back();
     }
 
     /**
@@ -38,6 +38,6 @@ class FavoriteController extends Controller
     public function destroy($id)
     {
         Favorite::where('post_id',$id)->where('user_id',Auth::id())->delete();
-        return redirect('top');
+        return redirect()->back();
     }
 }
