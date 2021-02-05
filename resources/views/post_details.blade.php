@@ -75,7 +75,7 @@
                 <img class="reply_user_image" src="{{ asset('/UserImage/'.$reply->user->image) }}">
                 @endif
                 <p class="reply_user_name">{{ $reply->user->name }}</p>
-                <p class="reply_created_at">投稿日{{ $reply->created_at }}</p>
+                <p class="reply_created_at">投稿日:{{ $reply->created_at }}</p>
             </div>
             <p class="reply_comment">{{ $reply->comment }}</p>
         </section>
