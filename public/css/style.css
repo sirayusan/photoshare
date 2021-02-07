@@ -427,6 +427,7 @@ body {
 }
 .post_input_image:hover{
     opacity: 0.8;
+    cursor: pointer;
 }
 .post_create_comment_index{
     width: 500px;
