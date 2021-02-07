@@ -21,7 +21,10 @@
         <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <section>
-                <label class="post_title" for="title">タイトル</label>
+                <div class="post_title_block">
+                    <label class="post_title" for="title">タイトル</label>
+                    <p class="post_title_input_caution">※入力必須</p>
+                </div>
                 <div class="post_title_block">
                     <div class="line_Darkblue post_title_line"></div>
                     <input class="post_title_input_field" name="title" rows="4" cols="40">
