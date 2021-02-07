@@ -25,7 +25,7 @@
     @if ($post->image ==  "no_image.png")
     <img class="post_detail_image" src="{{ asset('/SystemImage/no_image.png') }}">
     @else
-    <img src="{{ asset("/PostImage/$post->image") }}">
+    <img class="post_detail_image" src="{{ asset("/PostImage/$post->image") }}">
     @endif
     <article class="post_user_block">
         @if ($post->user->image ==  "user_no_image.png")
@@ -50,14 +50,14 @@
         <form  action="{{ route('favorites.destroy',['post_id' => $post->id,'favorite'=>$post->get_favorite_id()]) }}" method="post">
             @method('DELETE')
             @csrf
-            <input class="favorite_button" type="image" src="{{asset('SystemImage/favorite.png')}}" value="いいね削除">
-            <p class="favorite_comment">いいね！</p>
+            <input class="favorite_button" type="image" src="{{asset('SystemImage/already_favorite.png')}}" value="いいね削除">
+            <p class="favorite_comment">いいね解除</p>
         </form>
         @else
         <form action="{{ route('favorites.store',['post_id' => $post->id]) }}" method="post">
             @csrf
-            <input class="favorite_button" src="{{asset('SystemImage/already_favorite.png')}}" type="image" value="いいね" >
-            <p class="favorite_comment">いいね解除</p>
+            <input class="favorite_button" src="{{asset('SystemImage/favorite.png')}}" type="image" value="いいね" >
+            <p class="favorite_comment">いいね!</p>
         </form>
         @endif
     </article>
