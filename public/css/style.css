@@ -457,6 +457,24 @@ body {
     color         : #1a68b2;
     background    : #ffffff;
 }
+
+/* 投稿検索ページ */
+.posts_search_index{
+    margin: 20px 0px;
+    padding: 8px 10px;
+}
+.posts_search_container{
+    margin: 0px 40px;
+}
+.post_search_block{
+    margin: 0 ;
+}
+.post_search_posts{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post_search
 /* 会員情報表示 */
 .user_block {
     margin: 10px 10px;
@@ -554,7 +572,6 @@ input[name="tab_item"] {
     margin: 10px 10px 0px 0px ;
     width: 200px;
     text-align: center;
-    border: 1px solid;
 }
 .post:hover {
   opacity: 0.6;
