@@ -479,14 +479,14 @@ body {
     margin: 0;
 }
 .btn-primary{
-    margin: 0px 150px;
+    margin-left: 150px;
 }
 .btn-link{
     margin-left: 40px;
     width: 280px;
 }
 .login_remember{
-        margin-left:150px;
+    margin-left: 150px;
 }
 /* 会員情報表示 */
 .user_block {
