@@ -474,7 +474,20 @@ body {
     flex-wrap: wrap;
 }
 
-.post_search
+/* ログインページ */
+.offset-md-4{
+    margin: 0;
+}
+.btn-primary{
+    margin-left: 150px;
+}
+.btn-link{
+    margin-left: 40px;
+    width: 280px;
+}
+.login_remember{
+    margin-left: 150px;
+}
 /* 会員情報表示 */
 .user_block {
     margin: 10px 10px;
