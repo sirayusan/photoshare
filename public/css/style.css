@@ -488,6 +488,11 @@ body {
 .login_remember{
     margin-left: 150px;
 }
+
+/* 会員登録ページ */
+.register_btn{
+    width: 90px;
+}
 /* 会員情報表示 */
 .user_block {
     margin: 10px 10px;
