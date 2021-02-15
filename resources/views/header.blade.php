@@ -15,19 +15,21 @@
                         <li>
                             <a href="{{ route('top.index') }}">topページ</a>
                         </li>
-                        <li>
                             @if (Auth::check() === true)
-                            <a href="{{ route('users.show',['user'=>Auth::user()]) }}">プロフィール</a>
+                            <li>
+                                <a href="{{ route('users.show',['user'=>Auth::user()]) }}">プロフィール</a>
+                            </li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <input class="menu_logout_btn" type="submit" name="" value="ログアウト">
+                                </form>
+                            </li>
                             @else
-                            <a href="{{ route('login') }}">ログイン</a>
+                            <li>
+                                <a href="{{ route('login') }}">ログイン</a>
+                            </li>
                             @endif
-                        </li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
-                                <input class="menu_logout_btn" type="submit" name="" value="ログアウト">
-                            </form>
-                        </li>
                         <li>
                             <a href="{{ route('posts.create') }}">投稿する</a>
                         </li>

@@ -146,6 +146,9 @@ body {
     text-align: left;
     padding: 9px 0px 10px 0px;
 }
+.menu_logout_btn:focus{
+    outline: 0;
+}
 .menu_logout_btn:checked{
     border: unset;
 }
