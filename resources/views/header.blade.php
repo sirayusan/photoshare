@@ -23,6 +23,9 @@
                             @endif
                         </li>
                         <li>
+                            <form action="{{ route('user_logout') }}" method="post">
+                                <input type="submit" name="" value="ログアウト">
+                            </form>
                         </li>
                         <li>
                             <a href="{{ route('posts.create') }}">投稿する</a>
