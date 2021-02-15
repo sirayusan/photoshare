@@ -8,22 +8,28 @@
             </form>
             <!--ここからメニュー-->
             <div class="menue_container">
-            <input type="checkbox" id="menu-btn-check">
-            <label for="menu-btn-check" class="menu-btn"><span></span></label>
+                <input type="checkbox" id="menu-btn-check">
+                <label for="menu-btn-check" class="menu-btn"><span></span></label>
                 <div class="menu-content">
                     <ul>
                         <li>
                             <a href="{{ route('top.index') }}">topページ</a>
                         </li>
+                        @if (Auth::check() === true)
                         <li>
-                            @if (Auth::check() === true)
                             <a href="{{ route('users.show',['user'=>Auth::user()]) }}">プロフィール</a>
-                            @else
-                            <a href="{{ route('login') }}">ログイン</a>
-                            @endif
                         </li>
                         <li>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input class="menu_logout_btn" type="submit" name="" value="ログアウト">
+                            </form>
                         </li>
+                        @else
+                        <li>
+                            <a href="{{ route('login') }}">ログイン</a>
+                        </li>
+                        @endif
                         <li>
                             <a href="{{ route('posts.create') }}">投稿する</a>
                         </li>
