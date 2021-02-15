@@ -23,8 +23,9 @@
                             @endif
                         </li>
                         <li>
-                            <form action="{{ route('user_logout') }}" method="post">
-                                <input type="submit" name="" value="ログアウト">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input class="menu_logout_btn" type="submit" name="" value="ログアウト">
                             </form>
                         </li>
                         <li>

@@ -135,6 +135,21 @@ body {
     left: 0;/*メニューを画面内へ*/
 }
 
+.menu_logout_btn{
+    display: block;
+    background-color: unset;
+    color: white;
+    border: unset;
+    margin: 0 0 0 40px;
+    font-size: 15px;
+    width: 100%;
+    text-align: left;
+    padding: 9px 0px 10px 0px;
+}
+.menu_logout_btn:checked{
+    border: unset;
+}
+
 /*検索*/
 .form-box{
 	display: flex;
@@ -496,7 +511,7 @@ body {
 
 /* パスワード変更リンク送信ページ */
 .resetting_password_btn{
-    width: 150px;   
+    width: 150px;
 }
 
 /* 会員情報表示 */
