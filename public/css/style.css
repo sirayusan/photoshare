@@ -493,6 +493,12 @@ body {
 .register_btn{
     width: 90px;
 }
+
+/* パスワード変更リンク送信ページ */
+.resetting_password_btn{
+    width: 150px;   
+}
+
 /* 会員情報表示 */
 .user_block {
     margin: 10px 10px;
