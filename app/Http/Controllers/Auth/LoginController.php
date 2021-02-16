@@ -39,6 +39,9 @@ class LoginController extends Controller
     }
     protected function loggedOut()
     {
-        return redirect(route('top.index'));
+        return redirect(route('index'));
     }
+    protected function redirectTo() {
+      return route('index');
+   }
 }
