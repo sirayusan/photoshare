@@ -1,7 +1,7 @@
 <header>
     <div class="gloval_fixed_menu">
         <div class="gloval_fixed_menu_inner">
-            <a href="{{ route('top.index') }}">photoshare</a>
+            <a href="{{ route('index') }}">photoshare</a>
             <form class="form-box" action="{{ route('tag_search.index') }}" method="get">
                 <input classclass="form-input" type="text" name="tags">
                 <button class="form-button"><img src="{{asset('/SystemImage/top_search_icon.png')}}" width="20px" height="20px"></button>
@@ -12,9 +12,6 @@
                 <label for="menu-btn-check" class="menu-btn"><span></span></label>
                 <div class="menu-content">
                     <ul>
-                        <li>
-                            <a href="{{ route('top.index') }}">topページ</a>
-                        </li>
                         @if (Auth::check() === true)
                         <li>
                             <a href="{{ route('users.show',['user'=>Auth::user()]) }}">プロフィール</a>

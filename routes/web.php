@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //topページ
-Route::resource('top',TopController::class)->only([
+Route::resource('/',TopController::class)->only([
     'index'
 ]);
 
