@@ -24,10 +24,6 @@ class PostController extends Controller
      */
     public function create(Request $request)
     {
-      //ログイン状態確認。未ログインであれば会員登録ページへ飛ばす（この対処は仮）
-      if (Auth::check() === false) {
-          return view('auth/login');
-      }
       return view('post');
     }
 
