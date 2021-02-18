@@ -20,10 +20,6 @@ class ReplyController extends Controller
             'reply' => ['required', 'max:255'],
         ]);
 
-        if (Auth::check() === false) {
-            return view('auth/login');
-        }
-
         $reply = new Reply();
         $reply->comment = $validatedData['reply'];
         $reply->user_id = Auth::id();

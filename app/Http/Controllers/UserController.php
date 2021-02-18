@@ -22,10 +22,6 @@ class UserController extends Controller
 
     public function show($id)
     {
-        if (Auth::check() === false )
-        {
-            return redirect('top');
-        }
         $user = User::Find($id);
         return view('profile',compact('user'));
     }

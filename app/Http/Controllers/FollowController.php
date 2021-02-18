@@ -23,11 +23,6 @@ class FollowController extends Controller
      */
      public function store(Request $request)
      {
-         if(!Auth::check())
-         {
-             return redirect(route('login'));
-         }
-         
          if ($request->follow_user_id == Auth::id())
          {
              return back()->with('error', '自分自身をフォローすることはできません');

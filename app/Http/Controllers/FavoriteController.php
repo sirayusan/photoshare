@@ -17,10 +17,6 @@ class FavoriteController extends Controller
      */
     public function store($id)
     {
-        if (Auth::check() === false) {
-            return view('auth/login');
-        }
-
         $favorite = new Favorite;
         $favorite->user_id = Auth::id();
         $favorite->post_id = $id;

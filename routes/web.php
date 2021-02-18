@@ -26,42 +26,48 @@ Route::resource('/',TopController::class)->only([
     'index'
 ]);
 
+Route::group(['middleware' => ['auth']], function () {
+
+    // この中はログインされている場合のみルーティングされる
+    //投稿関連
+    Route::resource('posts',PostController::class)->only([
+        'create', 'store','destroy','edit','update'
+    ]);
+
+    //コメント機能
+    Route::resource('/posts/{post_id}/comments',ReplyController::class)->only([
+        'store'
+    ]);
+
+    //いいね機能
+    Route::resource('/posts/{post_id}/favorites',FavoriteController::class)->only([
+        'store','destroy'
+    ]);
+
+    //プロフィール機能
+    Route::resource('users',UserController::class)->only([
+        'show','update'
+    ]);
+
+    //フォロー解除
+    Route::resource('follows',FollowController::class)->only([
+        'store','destroy'
+    ]);
+
+    //フォロー
+    Route::get('follows',[App\Http\Controllers\FollowController::class, 'post_index'])->name('follow.post_index');
+});
+
 //投稿関連
-Route::resource('posts',PostController::class)->only([
-    'create', 'store','show','destroy','edit','update'
-]);
-
-//コメント機能
-Route::resource('/posts/{post_id}/comments',ReplyController::class)->only([
-    'store'
-]);
-
-//いいね機能
-Route::resource('/posts/{post_id}/favorites',FavoriteController::class)->only([
-  'store','destroy'
-]);
+Route::resource('posts',PostController::class)->only(['show']);
 
 //タグ検索
 Route::resource('/tag_search',TagController::class)->only([
-  'index'
+    'index'
 ]);
 
 //認証機能
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-//プロフィール機能
-Route::resource('users',UserController::class)->only([
-    'show','update'
-]);
-
-//フォロー解除
-Route::resource('follows',FollowController::class)->only([
-  'store','destroy'
-]);
-
-//フォロー
-Route::get('follows',[App\Http\Controllers\FollowController::class, 'post_index'])->name('follow.post_index');
 
 //ログアウト
 Route::post('/user/logout',[UserController::class,'user_logout'])->name('user_logout');
