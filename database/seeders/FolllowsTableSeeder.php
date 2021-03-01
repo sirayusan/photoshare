@@ -18,22 +18,22 @@ class FolllowsTableSeeder extends Seeder
     {
         // フォロー確認用
         DB::table('follows')->insert([
-            'user_id' => User::where('name','管理者アカウント')->first()->id,
-            'follow_user_id' => User::where('name','フォロー確認アカウント')->first()->id,
+            'user_id' => '1',
+            'follow_user_id' => '2',
         ]);
         // フォロワー確認用
         DB::table('follows')->insert([
-            'user_id' => User::where('name','フォロワー確認アカウント')->first()->id,
-            'follow_user_id' => User::where('name','管理者アカウント')->first()->id,
+            'user_id' => '3',
+            'follow_user_id' => '1',
         ]);
         // 相互フォロワー確認用
         DB::table('follows')->insert([
-            'user_id' => User::where('name','管理者アカウント')->first()->id,
-            'follow_user_id' => User::where('name','相互フォロー確認アカウント')->first()->id,
+            'user_id' => '1',
+            'follow_user_id' => '4',
         ]);
         DB::table('follows')->insert([
-            'user_id' => User::where('name','相互フォロー確認アカウント')->first()->id,
-            'follow_user_id' => User::where('name','管理者アカウント')->first()->id,
+            'user_id' => '4',
+            'follow_user_id' => '1',
         ]);
     }
 }
