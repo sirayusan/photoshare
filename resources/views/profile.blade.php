@@ -30,7 +30,7 @@
                         <img class="iconImage" src="{{ asset('/SystemImage/user_no_image.png') }}">
                         @else
                         <div id="image-style">
-                            <img class="iconImage" src="{{ asset("/UserImage/$user->image") }}">
+                            <img class="iconImage" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{$user->image}}">
                         </div>
                         @endif
                     </span>
@@ -85,7 +85,7 @@
                 @if ($follow->follow_user->image ==  "user_no_image.png")
                 <img class="user_image" src="{{ asset('/SystemImage/user_no_image.png') }}">
                 @else
-                <img class="user_image" src="{{ asset("/PostImage/$follow->follow_user->image") }}">
+                <img class="user_image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{$follow->follow_user->image}}">
                 @endif
                 <div class="user_discription">
                     <p class="user_name">{{ $follow->follow_user->name  }}</p>
@@ -106,7 +106,7 @@
                 @if ($follower->user->image ==  "user_no_image.png")
                 <img class="user_image" src="{{ asset('/SystemImage/user_no_image.png') }}" width="80px">
                 @else
-                <img class="user_image" src="{{ asset("/PostImage/$follow->user->image") }}" width="80px">
+                <img class="user_image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{$follow->user->image}}" width="80px">
                 @endif
                 <div class="user_discription">
                     <p class="user_name">{{ $follower->user->name  }}</p>
@@ -125,7 +125,7 @@
             @if ($post->image ==  "no_image.png")
             <img class="post_img" src="{{ asset('/SystemImage/no_image.png') }}">
             @else
-            <img class="post_img" src="{{ asset("/PostImage/$post->image") }}">
+            <img class="post_img" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/PostImage/{{ $post->image }}">
             @endif
             @if (strlen($post->title) <= 36)
             <p>{{ mb_strimwidth($post->title,0,36) }}</p>
@@ -137,7 +137,7 @@
             @if ($post->user->image ==  "user_no_image.png")
             <img class="post_icon_Image" src="{{ asset('/SystemImage/'.$post->user->image) }}">
             @else
-            <img class="post_icon_Image" src="{{ asset('/UserImage/'.$post->user->image) }}">
+            <img class="post_icon_Image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{$post->user->image}}">
             @endif
             <p>{{ mb_strimwidth($post->user->name,0,28) }}</p>
         </div>

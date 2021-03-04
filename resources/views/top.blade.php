@@ -20,7 +20,7 @@
             @if ($post->image ==  "no_image.png")
             <img class="post_img" src="{{ asset('/SystemImage/no_image.png') }}">
             @else
-            <img class="post_img" src="{{ asset("/PostImage/$post->image") }}" width="80px">
+            <img class="post_img" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/PostImage/{{ $post->image }}" width="80px">
             @endif
             @if (strlen($post->title) <= 36)
             <p>{{ mb_strimwidth($post->title,0,36) }}</p>
@@ -32,7 +32,7 @@
             @if ($post->user->image ==  "user_no_image.png")
             <img class="post_icon_Image" src="{{ asset('/SystemImage/'.$post->user->image) }}">
             @else
-            <img class="post_icon_Image" src="{{ asset('/UserImage/'.$post->user->image) }}">
+            <img class="post_icon_Image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{ $post->user->image }}">
             @endif
             <p>{{ mb_strimwidth($post->user->name,0,28) }}</p>
         </div>

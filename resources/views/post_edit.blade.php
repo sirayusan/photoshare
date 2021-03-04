@@ -33,7 +33,7 @@
                             @if ($post->image ==  "no_image.png")
                                 <img class="image-output post_input_image" src="{{ asset('/SystemImage/no_image.png') }}">
                             @else
-                                <img class="image-output post_input_image" src="{{ asset('/PostImage/'.$post->image) }}">
+                                <img class="image-output post_input_image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/PostImage/{{ $post->image }}">
                             @endif
                         </span>
                         <input type="file" id="image" name="image" accept="image/*" class="image" >

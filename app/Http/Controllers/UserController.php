@@ -5,9 +5,11 @@ use App\Http\Requests\ValidateController;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use Auth;
 use Str;
 use File;
+use Storage;
 
 class UserController extends Controller
 {
@@ -38,7 +40,7 @@ class UserController extends Controller
         {
             $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
             $user->image = hash('sha256',Str::random(20).time()).'.'.'png';
-            File::put(storage_path('app/public/image/UserImage'). '/' . $user->image, $image);
+            $path = Storage::disk('s3')->put('/UserImage/'.$user->image,$image, 'public');
         }elseif(isset($request->image)){
             return back()->with('error', '選択できるのは画像のみです。');
         }

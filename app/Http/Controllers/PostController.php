@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopController;
+use League\Flysystem\AwsS3v3\AwsS3Adapter;
 use Illuminate\Http\Request;
 use App\Models\Follow;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Tag;
+use Storage;
 use Auth;
 use File;
 use Str;
@@ -52,7 +54,7 @@ class PostController extends Controller
             {
                 $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
                 $post->image = hash('sha256',Str::random(20).time()).'.'.'png';
-                File::put(storage_path('app/public/image/PostImage'). '/' . $post->image, $image);
+                $path = Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
             }else{
                 return back()->with('error', '画像以外が選択されています。');
             }
@@ -73,7 +75,7 @@ class PostController extends Controller
                 $tag->save();
             }
         }
-        return redirect('top');
+        return redirect('/');
     }
 
     /**
@@ -124,7 +126,7 @@ class PostController extends Controller
             {
                 $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
                 $post->image = hash('sha256',Str::random(20).time()).'.'.'png';
-                File::put(storage_path('app/public/image/PostImage'). '/' . $post->image, $image);
+                $path = Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
             }else{
                 return back()->with('error', '画像以外が選択されています。');
             }
@@ -156,7 +158,7 @@ class PostController extends Controller
                 }
             }
         }
-        return redirect('top');
+        return redirect('/');
     }
 
   /**
