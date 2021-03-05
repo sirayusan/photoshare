@@ -24,7 +24,6 @@ class UserController extends Controller
 
     public function show($id)
     {
-        // dd(config('app.AWS_URL'));
         $user = User::Find($id);
         return view('profile',compact('user'));
     }

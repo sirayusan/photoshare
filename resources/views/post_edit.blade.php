@@ -34,7 +34,7 @@
                                 <img class="image-output post_input_image" src="{{ asset('/SystemImage/no_image.png') }}">
                             @else
                                 @if(app()->environment('production'))
-                                <img class="image-output post_input_image" src="{{config('AWS_URL')}}/PostImage/{{ $post->image }}">
+                                <img class="image-output post_input_image" src="{{config('app.AWS_URL')}}/PostImage/{{ $post->image }}">
                                 @elseif (app()->environment('local'))
                                 <img class="image-output post_input_image" src="{{ asset('/PostImage/'.$post->image) }}">
                                 @endif

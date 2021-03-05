@@ -26,7 +26,7 @@
     <img class="post_detail_image" src="{{ asset('/SystemImage/no_image.png') }}">
     @else
         @if(app()->environment('production'))
-        <img class="post_detail_image" src="{{config('AWS_URL')}}/PostImage/{{ $post->image }}">
+        <img class="post_detail_image" src="{{config('app.AWS_URL')}}/PostImage/{{ $post->image }}">
         @else
         <img class="post_detail_image" src="{{ asset('/PostImage/'.$post->image) }}">
         @endif
@@ -36,7 +36,7 @@
         <img src="{{ asset('/SystemImage/user_no_image.png') }}">
         @else
             @if(app()->environment('production'))
-            <img src="{{config('AWS_URL')}}/UserImage/{{$post->user->image}}">
+            <img src="{{config('app.AWS_URL')}}/UserImage/{{$post->user->image}}">
             @else
             <img src="{{ asset('/UserImage/'.$post->user->image) }}">
             @endif
@@ -81,7 +81,7 @@
                 <img class="reply_user_image" src="{{ asset('/SystemImage/user_no_image.png') }}">
                 @else
                     @if(app()->environment('production'))
-                    <img class="reply_user_image" src="{{config('AWS_URL')}}/UserImage/{{$reply->user->image}}">
+                    <img class="reply_user_image" src="{{config('app.AWS_URL')}}/UserImage/{{$reply->user->image}}">
                     @elseif (app()->environment('local'))
                     <img class="reply_user_image" src="{{ asset('/UserImage/'.$reply->user->image) }}">
                     @endif
