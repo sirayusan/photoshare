@@ -43,7 +43,7 @@ class UserController extends Controller
             if (app()->environment('production'))
             {
                 Storage::disk('s3')->put('/UserImage/'.$user->image,$image, 'public');
-            }elseif (app()->environment('local')){
+            }else{
                 File::put(storage_path('app/public/image/UserImage'). '/' . $user->image, $image);
             }
         }elseif(isset($request->image)){

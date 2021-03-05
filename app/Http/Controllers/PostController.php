@@ -56,7 +56,7 @@ class PostController extends Controller
                 $post->image = hash('sha256',Str::random(20).time()).'.'.'png';
                 if (app()->environment('production')) {
                     Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
-                }elseif (app()->environment('local')) {
+                }else {
                     File::put(storage_path('app/public/image/PostImage'). '/' . $post->image, $image);
                 }
             }else{
@@ -132,7 +132,7 @@ class PostController extends Controller
                 $post->image = hash('sha256',Str::random(20).time()).'.'.'png';
                 if (app()->environment('production')) {
                     Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
-                }elseif (app()->environment('local')) {
+                }else {
                     File::put(storage_path('app/public/image/PostImage'). '/' . $post->image, $image);
                 }
             }else{
