@@ -53,6 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+    'AWS_URL' => env('AWS_URL',false),
 
     'asset_url' => env('ASSET_URL', null),
 

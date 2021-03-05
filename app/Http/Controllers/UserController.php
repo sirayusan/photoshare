@@ -24,6 +24,7 @@ class UserController extends Controller
 
     public function show($id)
     {
+        // dd(config('app.AWS_URL'));
         $user = User::Find($id);
         return view('profile',compact('user'));
     }
@@ -40,7 +41,12 @@ class UserController extends Controller
         {
             $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
             $user->image = hash('sha256',Str::random(20).time()).'.'.'png';
-            $path = Storage::disk('s3')->put('/UserImage/'.$user->image,$image, 'public');
+            if (app()->environment('production'))
+            {
+                Storage::disk('s3')->put('/UserImage/'.$user->image,$image, 'public');
+            }elseif (app()->environment('local')){
+                File::put(storage_path('app/public/image/UserImage'). '/' . $user->image, $image);
+            }
         }elseif(isset($request->image)){
             return back()->with('error', '選択できるのは画像のみです。');
         }

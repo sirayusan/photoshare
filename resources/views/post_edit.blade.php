@@ -33,7 +33,11 @@
                             @if ($post->image ==  "no_image.png")
                                 <img class="image-output post_input_image" src="{{ asset('/SystemImage/no_image.png') }}">
                             @else
-                                <img class="image-output post_input_image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/PostImage/{{ $post->image }}">
+                                @if(app()->environment('production'))
+                                <img class="image-output post_input_image" src="{{config('AWS_URL')}}/PostImage/{{ $post->image }}">
+                                @elseif (app()->environment('local'))
+                                <img class="image-output post_input_image" src="{{ asset('/PostImage/'.$post->image) }}">
+                                @endif
                             @endif
                         </span>
                         <input type="file" id="image" name="image" accept="image/*" class="image" >

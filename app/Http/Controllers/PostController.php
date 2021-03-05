@@ -54,7 +54,11 @@ class PostController extends Controller
             {
                 $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
                 $post->image = hash('sha256',Str::random(20).time()).'.'.'png';
-                $path = Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
+                if (app()->environment('production')) {
+                    Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
+                }elseif (app()->environment('local')) {
+                    File::put(storage_path('app/public/image/PostImage'). '/' . $post->image, $image);
+                }
             }else{
                 return back()->with('error', '画像以外が選択されています。');
             }
@@ -126,7 +130,11 @@ class PostController extends Controller
             {
                 $image = base64_decode(str_replace(' ', '+',str_replace('data:image/png;base64,', '', $request->image)));
                 $post->image = hash('sha256',Str::random(20).time()).'.'.'png';
-                $path = Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
+                if (app()->environment('production')) {
+                    Storage::disk('s3')->put('/PostImage/'.$post->image,$image, 'public');
+                }elseif (app()->environment('local')) {
+                    File::put(storage_path('app/public/image/PostImage'). '/' . $post->image, $image);
+                }
             }else{
                 return back()->with('error', '画像以外が選択されています。');
             }

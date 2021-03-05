@@ -25,13 +25,21 @@
     @if ($post->image ==  "no_image.png")
     <img class="post_detail_image" src="{{ asset('/SystemImage/no_image.png') }}">
     @else
-    <img class="post_detail_image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/PostImage/{{ $post->image }}">
+        @if(app()->environment('production'))
+        <img class="post_detail_image" src="{{config('AWS_URL')}}/PostImage/{{ $post->image }}">
+        @else
+        <img class="post_detail_image" src="{{ asset('/PostImage/'.$post->image) }}">
+        @endif
     @endif
     <article class="post_user_block">
         @if ($post->user->image ==  "user_no_image.png")
         <img src="{{ asset('/SystemImage/user_no_image.png') }}">
         @else
-        <img src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{$post->user->image}}">
+            @if(app()->environment('production'))
+            <img src="{{config('AWS_URL')}}/UserImage/{{$post->user->image}}">
+            @else
+            <img src="{{ asset('/UserImage/'.$post->user->image) }}">
+            @endif
         @endif
         <p class="post_detail_user_name">{{ $post->user->name }}</p>
         @if ($follow->already_follow($post->user->id))
@@ -72,7 +80,11 @@
                 @if ($reply->user->image ==  "user_no_image.png")
                 <img class="reply_user_image" src="{{ asset('/SystemImage/user_no_image.png') }}">
                 @else
-                <img class="reply_user_image" src="https://snopimage.s3-ap-northeast-1.amazonaws.com/UserImage/{{$reply->user->image}}">
+                    @if(app()->environment('production'))
+                    <img class="reply_user_image" src="{{config('AWS_URL')}}/UserImage/{{$reply->user->image}}">
+                    @elseif (app()->environment('local'))
+                    <img class="reply_user_image" src="{{ asset('/UserImage/'.$reply->user->image) }}">
+                    @endif
                 @endif
                 <p class="reply_user_name">{{ $reply->user->name }}</p>
                 <p class="reply_created_at">投稿日:{{ $reply->created_at }}</p>
