@@ -7,7 +7,7 @@
 @section('body')
 <div class="wrap"></div>
 <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
-<main class="post_create">
+<main class="main_container">
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
