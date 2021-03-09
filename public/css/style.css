@@ -83,8 +83,8 @@
 #gloval-fixed-menu__btn-check {
     display: none;
 }
-.menue_container{
-    margin-left: 600px;
+.gloval-fixed-menu__container{
+    float: right;
 }
 .gloval-fixed-menu__content {
     width: 100%;
