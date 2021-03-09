@@ -2,7 +2,7 @@
 @section('body')
 <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
 <div class="wrap"></div>
-<main class="main_container">
+<main class="main-container">
     <article>
         @if (session('error'))
         <p class="text-danger mt-3">

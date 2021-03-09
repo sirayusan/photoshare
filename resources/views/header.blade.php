@@ -1,16 +1,16 @@
 <header>
-    <div class="gloval_fixed_menu">
-        <div class="gloval_fixed_menu_inner">
+    <div class="gloval-fixed-menu">
+        <div class="gloval-fixed-menu___inner">
             <a href="{{ route('index') }}">photoshare</a>
             <form class="form-box" action="{{ route('tag_search.index') }}" method="get">
                 <input classclass="form-input" type="text" name="tags">
                 <button class="form-button"><img src="{{asset('/SystemImage/top_search_icon.png')}}" width="20px" height="20px"></button>
             </form>
             <!--ここからメニュー-->
-            <div class="menue_container">
-                <input type="checkbox" id="menu-btn-check">
-                <label for="menu-btn-check" class="menu-btn"><span></span></label>
-                <div class="menu-content">
+            <div class="gloval-fixed-menu__container">
+                <input type="checkbox" id="gloval-fixed-menu__btn-check">
+                <label for="gloval-fixed-menu__btn-check" class="gloval-fixed-menu__btn"><span></span></label>
+                <div class="gloval-fixed-menu__content">
                     <ul>
                         @if (Auth::check() === true)
                         <li>
@@ -37,3 +37,5 @@
         </div>
     </div>
 </header>
+<!-- gloval-fixed-menu__の初位置を確保すためのタグ -->
+<div class="wrap"></div>

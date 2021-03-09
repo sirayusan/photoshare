@@ -7,7 +7,7 @@
 @section('body')
 <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
 <div class="wrap"></div>
-<main class="main_container">
+<main class="main-container">
     <article>
         <form action="{{ route('posts.update',['post'=>$post->id]) }}" method="post" enctype="multipart/form-data">
             @method('PUT')

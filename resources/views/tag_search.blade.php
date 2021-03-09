@@ -2,7 +2,7 @@
 @section('body')
 <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
 <div class="wrap"></div>
-<main class="posts_search_container">
+<main class="main-container">
     <article class="posts_search_block">
         <h1 class="line_Darkblue posts_search_index">検索結果</h1>
         <section class="post_search_posts">

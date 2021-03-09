@@ -8,7 +8,7 @@
 @section('body')
 <!-- gloval_fixed_menuの初位置を確保すためのタグ -->
 <div class="wrap"></div>
-<main class="main_container">
+<main class="main-container">
     <form action="{{ route('users.update',['user'=>Auth::id()]) }}" method="post" enctype="multipart/form-data">
         @method('PUT')
         @csrf
