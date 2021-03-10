@@ -6,8 +6,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/icon_croppie.css') }}">
 @show
 @section('body')
-<!-- gloval_fixed_menuの初位置を確保すためのタグ -->
-<div class="wrap"></div>
 <main class="main-container">
     <form action="{{ route('users.update',['user'=>Auth::id()]) }}" method="post" enctype="multipart/form-data">
         @method('PUT')
@@ -119,14 +117,14 @@
         </div>
     </div>
     <h1 class="line_Darkblue profile_index">投稿一覧</h1>
-    <div class="posts">
+    <div class="main-container__posts">
         @foreach ($user->posts as $post)
-        <div class="post">
+        <div class="main-container__post">
             <a href="{{ route('posts.show',['post' => $post->id]) }}">
                 @if ($post->image ==  "no_image.png")
-                <img class="post_img" src="{{ asset('/SystemImage/no_image.png') }}">
+                <img class="main-container__post_img" src="{{ asset('/SystemImage/no_image.png') }}">
                 @else
-                <img class="post_img" src="{{ asset("/PostImage/$post->image") }}">
+                <img class="main-container__post_img" src="{{ asset("/PostImage/$post->image") }}" width="80px">
                 @endif
                 @if (strlen($post->title) <= 36)
                 <p>{{ mb_strimwidth($post->title,0,36) }}</p>
@@ -134,40 +132,38 @@
                 <p>{{ mb_strimwidth($post->title,0,30) }}.....</p>
                 @endif
             </a>
-            <div class="post_user">
+            <div class="main-container__post_user">
                 @if ($post->user->image ==  "user_no_image.png")
-                <img class="post_icon_Image" src="{{ asset('/SystemImage/'.$post->user->image) }}">
+                <img class="main-container__post_icon_Image" src="{{ asset('/SystemImage/'.$post->user->image) }}">
                 @else
-                <img class="post_icon_Image" src="{{ asset('/UserImage/'.$post->user->image) }}">
+                <img class="main-container__post_icon_Image" src="{{ asset('/UserImage/'.$post->user->image) }}">
                 @endif
                 <p>{{ mb_strimwidth($post->user->name,0,28) }}</p>
             </div>
-            <div class="post_edit_block">
+            <div class="post-edit">
                 <form action="{{ route('posts.destroy',['post'=>$post->id]) }}" method="post">
                     @method('DELETE')
                     @csrf
-                    <input class="profile_posts_edit_button" type="submit" value="削除">
+                    <input class="post-edit__profile-posts-edit-button" type="submit" value="削除">
                 </form>
                 <form action="{{ route('posts.edit',['post'=>$post->id]) }}" method="get">
-                    <input class="profile_posts_edit_button" type="submit" value="編集">
+                    <input class="post-edit__profile-posts-edit-button" type="submit" value="編集">
                 </form>
             </div>
         </div>
         @endforeach
     </div>
     <h1 class="line_Darkblue profile_index">新着</h1>
-    <div class="new_posts_container">
+    <div class="new-posts">
         @foreach ($user->follow_user_posts->take(6) as $post)
-        <div class="new_post_block">
             <p>フォロ－している
                 @if ($post->user->image ==  "user_no_image.png")
-                <img class="new_post_image" src="{{ asset('/SystemImage/user_no_image.png') }}">
+                <img class="new-post-image" src="{{ asset('/SystemImage/user_no_image.png') }}">
                 @else
-                <img class="new_post_image" src="{{ asset("/PostImage/$post->user->image") }}">
+                <img class="new-post-image" src="{{ asset("/PostImage/$post->user->image") }}">
                 @endif
                 {{ $post->user->name }}さんが「<a href="{{ route('posts.show',['post' => $post->id]) }}">{{ $post->title }}</a>」を投稿しました！
             </p>
-        </div>
         @endforeach
         <a href="{{ route('follow.post_index') }}">もっとみる</a>
     </div>

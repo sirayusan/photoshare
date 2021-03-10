@@ -73,7 +73,7 @@ class PostController extends Controller
                 $tag->save();
             }
         }
-        return redirect('top');
+        return redirect('/');
     }
 
     /**

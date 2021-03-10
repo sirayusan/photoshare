@@ -84,7 +84,7 @@
     display: none;
 }
 .gloval-fixed-menu__container{
-    float: right;
+    margin-left:68%;
 }
 .gloval-fixed-menu__content {
     width: 100%;
@@ -281,7 +281,7 @@
     color         : #1a68b2;
     background    : #ffffff;
 }
-.profile_posts_edit_button {
+.post-edit__profile-posts-edit-button {
     margin: 2px 2px;
     font-size     : 12pt;
     text-align    : center;
@@ -290,13 +290,13 @@
     color         : #ffffff;
 }
 /* プロフィールの新着投稿 */
-.new_posts_container{
+.new-posts{
     margin: 0px 40px;
 }
 .new_post p{
     color: black;
 }
-.new_post_image {
+.new-post-image {
     width: 20px;
 }
 
@@ -309,22 +309,22 @@
     padding: 8px;
     margin-top: 20px;
 }
-.post_user_block{
+.post-user{
     display: flex;
     margin: 20px 0px;
     height: 60px;
 }
-.post_user_block img{
+.post-user img{
     width: 40px;
     height: 40px;
     margin: 15px 0;
 }
-.post_detail_user_name{
+.post-user__post-detail-user-name{
     font-size: 1.5rem;
     margin: 15px 0;
     vertical-align: center;
 }
-.follow_button{
+.follow-button{
     height: 25px;
     margin: 17px 10px;
     background: #76C9EB;
@@ -335,21 +335,21 @@
 .follow_button:hover{
     opacity: 0.5;
 }
-.favorite_button{
+.favorite-button{
     width: 30px;
     margin: 10px 10px;
 }
 .tags{
     font-size: 1.5rem;
 }
-.post_detail_image{
+.post-detail-image{
     width: 700px;
 }
-.post_detail_comment{
+.post-detail-comment{
     font-size: 1.2rem;
     width: 700px
 }
-.profile_posts_edit_button {
+.post-edit__profile-posts-edit-button {
     display       : inline-block;
     margin: 2px 2px;
     font-size     : 12pt;
@@ -361,31 +361,31 @@
 .replies {
     width: 700px;
 }
-.replies_index{
+.replies__index{
     font-size: 1rem;
 }
-.reply{
+.replies-reply{
     margin: 10px 0px;
 }
-.reply_container{
+.reply-user{
     display: flex;
 }
-.reply_user_image{
+.reply-user__image{
     width: 40px;
 }
-.reply_user_name{
+.reply-user__name{
     font-size: 1rem;
     margin: 8px 0px 8px 0px;
 }
-.reply_created_at{
+.reply-user__created-at{
     font-size: 1rem;
     margin: 8px 15px;
 }
-.reply_comment{
+.reply-user__omment{
     margin-left: 40px;
 }
-.post_comment{
-        margin: 20px 0px;
+.post-comments{
+    margin: 20px 0px;
     width: 500px;
 }
 .post_comment_index{
@@ -407,7 +407,7 @@
 .post_title_input_caution{
     color: red;
 }
-.post_title_block{
+.post-create__title-block{
     font-size: 1.5rem;
     display: flex;
 }
@@ -417,14 +417,14 @@
 .post_title_input_field{
     width: 480px;
 }
-.post_tag_container{
+.post-create__tag-container{
     margin: 20px 0px;
 }
-.post_tag_input_field{
+.post-create__tag-input-field{
     font-size: 1.5rem;
     width: 500px
 }
-.post_tag_index{
+.post-create__tag-index{
     font-size: 1.5rem;
     width: 500px;
 }
@@ -436,14 +436,17 @@
     opacity: 0.8;
     cursor: pointer;
 }
-.post_create_comment_index{
-    width: 500px;
+.post_create_comment{
+
+}
+.post-create__comment-index{
+    width: 100%;
     font-size: 1.5rem;
 }
-.post_input_comment {
+.post-create__input-comment {
     resize: none;
-    width: 560px;
-    height: 200px;
+    width: 70%;
+    height: 300px;
     font-size: 1rem;
 }
 .profile_create_complete {
@@ -626,7 +629,7 @@ input[name="tab_item"] {
 .main-container__post_user{
     display: flex;
 }
-.main-container__post_edit_block{
+.post-edit{
     display: flex;
     width: 100px;
     margin: 0px auto;;

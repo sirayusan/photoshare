@@ -5,24 +5,22 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/mycrop.css') }}">
 @show
 @section('body')
-<!-- gloval_fixed_menuの初位置を確保すためのタグ -->
-<div class="wrap"></div>
 <main class="main-container">
     <article>
         <form action="{{ route('posts.update',['post'=>$post->id]) }}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <div class="post_title_block">
+            <div class="post-create__title-block">
                 <label class="post_title" for="title">タイトル</label>
                 <p class="post_title_input_caution">※入力必須</p>
             </div>
-            <div class="post_title_block">
-                <div class="line_Darkblue post_title_line"></div>
+                <div class="post-create__title-block">
+                    <div class="line_Darkblue post_title_line"></div>
                 <input class="post_title_input_field" name="title" value="{{ $post->title }}">
             </div>
-            <section class="post_tag_container">
-                <label class="post_tag_index" for="tags">タグ</label>
-                <input class="post_tag_input_field" name="tags" rows="4" cols="40" value="@foreach($post->tags as $cnt => $tag)@if($post->tags->count()-1 !== $cnt){{$tag->tag}},@else{{$tag->tag}}@endif
+            <section class="post-create__tag-container">
+                <label class="post-create__tag-index" for="tags">タグ</label>
+                <input class="post-create__tag-input-field name="tags" rows="4" cols="40" value="@foreach($post->tags as $cnt => $tag)@if($post->tags->count()-1 !== $cnt){{$tag->tag}},@else{{$tag->tag}}@endif
 @endforeach">
                 <div class="bubble1">タグ1,タグ2のように , で区切って入力してください</div>
             </section>
@@ -58,8 +56,8 @@
                 </div>
             </section>
             <section class="post_create_comment">
-                <label class="post_create_comment_index" for="comment">コメント</label>
-                <textarea class="post_input_comment" name="comment" rows="4" cols="40">{{ $post->comment }}</textarea>
+                <label class="post-create__comment-index" for="comment">コメント</label>
+                <textarea class="post-create__input-comment"name="comment" rows="4" cols="40">{{ $post->comment }}</textarea>
             </section>
             <input type="hidden" id="cropImage" name="image" value="" />
             <input class="profile_create_complete" type="submit" name="" value="編集完了">

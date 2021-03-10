@@ -5,8 +5,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/mycrop.css') }}">
 @show
 @section('body')
-<div class="wrap"></div>
-<!-- gloval_fixed_menuの初位置を確保すためのタグ -->
 <main class="main-container">
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -17,22 +15,22 @@
         </ul>
     </div>
     @endif
-    <article class="">
+    <article class="post-create">
         <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <section>
-                <div class="post_title_block">
+                <div class="post-create__title-block">
                     <label class="post_title" for="title">タイトル</label>
                     <p class="post_title_input_caution">※入力必須</p>
                 </div>
-                <div class="post_title_block">
+                <div class="post-create__title-block">
                     <div class="line_Darkblue post_title_line"></div>
                     <input class="post_title_input_field" name="title" rows="4" cols="40">
                 </div>
             </section>
-            <section class="post_tag_container">
-                <label class="post_tag_index" for="tags">タグ</label>
-                <input class="post_tag_input_field" name="tags" rows="4" cols="40">
+            <section class="post-create__tag-container">
+                <label class="post-create__tag-index" for="tags">タグ</label>
+                <input class="post-create__tag-input-field" name="tags" rows="4" cols="40">
                 <div class="bubble1">タグ1,タグ2のように , で区切って入力してください</div>
             </section>
             <section>
@@ -62,9 +60,9 @@
                     </div>
                 </div>
             </section>
-            <section class="post_create_comment">
-                <label class="post_create_comment_index" for="comment">コメント</label>
-                <textarea class="post_input_comment" name="comment" rows="4" cols="40"></textarea>
+            <section class="post-create-comment">
+                <label class="post-create__comment-index" for="comment">コメント</label>
+                <textarea class="post-create__input-comment" name="comment" rows="4" cols="40"></textarea>
             </section>
             <input type="hidden" id="cropImage" name="image" value="" />
             <input class="profile_create_complete" type="submit" name="action" value="投稿">
